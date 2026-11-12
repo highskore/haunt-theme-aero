@@ -1,0 +1,270 @@
+name = "Frutiger Aero"
+appearance = "light"
+
+[color]
+window.bg = "#e8f6ffa8"
+sidebar.bg = "#eaf6fd"
+hairline = "#a8d4ec"
+row.selected = "#c8ecff"
+text.primary = "#0b2a44"
+text.meta = "#4d7590"
+text.sub = "#3a6886"
+text.label = "#1d6fa3"
+text.terminal = "#e6f7ff"
+needs = "#ffffff"
+bar.track = "#e6ebee"
+bar.fill = "#2fb80f"
+icon.bg = "#1a1a1a"
+icon.fg = "#cfeaff"
+palette.bg = "#f2faffe0"
+palette.border = "#145a8c8c"
+palette.ink = "#0b2a44"
+palette.mute = "#4d7590"
+palette.rule = "#a8d4ec"
+palette.entry.rule = "#00000000"
+palette.sel = "#c8ecff"
+
+[size]
+sidebar.w = 262
+titlebar.h = 36
+titlebar.padx = 12
+lights.d = 15
+lights.gap = 7
+label.font = 12
+label.pad = [12, 12, 4]
+row.pad = [6, 14]
+row.name = 13
+icon.radius = 4
+bar.h = 9
+bar.mt = 5
+pane.font = 12.5
+pane.line = 1.62
+pane.pad = [14, 18]
+palette.radius = 10
+palette.font = 12.5
+palette.small.font = 10.5
+palette.input.font = 14
+palette.input.pad = [10, 10]
+palette.entry.pad = [6, 0]
+palette.list.pad = [0, 8]
+palette.foot.pad = [8, 14]
+
+[font]
+ui = "Mukta"
+mono.family = "Inconsolata"
+base.line = 1.4
+
+[app]
+title.fg = "#0c2e4a"
+title.font = 13.5
+sidebar.padtop = 0
+sidebar.foot.fg = "#1d5f88"
+sidebar.foot.font = 11
+sidebar.foot.pad = [8, 20, 18]
+pill.bg = "#d4600a"
+pill.fg = "#ffffff"
+pill.ring = "#ffffff80"
+pill.radius = 10
+pill.pad = [1, 9]
+palette.field = "#ffffff"
+palette.pill.ink = "#0b2a44"
+palette.pill.mute = "#3a6886"
+
+[layout]
+palette_position = "bottom-right"
+palette_width = 340
+palette_rows = "single-line"
+title_format = "Haunt — {tab}"
+
+[effects]
+window.material = "glass"
+window.radius = 10
+window.ring = true
+titlebar.rule = false
+titlebar.lights = "color"
+sidebar.footer = true
+label.case = "sentence"
+label.weight = "semibold"
+row.inset = 6
+row.radius = 6
+needs.pill = true
+needs.weight = "bold"
+bar.radius = 5
+bar.done = false
+palette.material = "glass"
+palette.font = "ui"
+palette.icons = true
+palette.selection = "pill"
+palette.foot = true
+palette.scrim = false
+palette.keys = "plain"
+palette.input.icon = true
+palette.tab.sub = "task"
+
+[ghostty]
+background = "#0a2b42"
+foreground = "#e6f7ff"
+cursor-color = "#7cf3ff"
+selection-background = "#2f7fb3"
+font-family = "Inconsolata"
+font-size = 12.5
+palette = ["0=#0a2b42", "1=#ff6f6f", "2=#7ee081", "3=#ffe27a", "4=#5cc8ff", "5=#d39bff", "6=#6ff2e6", "7=#dff4ff", "8=#4f7896", "9=#ff9a9a", "10=#a6f0a8", "11=#fff0a8", "12=#8fdcff", "13=#e6c2ff", "14=#a8fff6", "15=#ffffff"]
+
+# Every colour drawn under text reads at 3:1 against that slot's text (strokes included).
+
+# The title bar's gloss: bright on top, a horizon at the middle.
+[[layer]]
+id = "titlebar-gloss"
+slot = "titlebar"
+  [[layer.draw]]
+  kind = "gradient"
+  stops = ["#ffffffbf 0%", "#ffffff40 48%", "#78c8f026 50%", "#ffffff00 100%"]
+
+# Gel lights: a white highlight across each light's top.
+[[layer]]
+id = "lights-gel"
+slot = "lights"
+  [[layer.draw]]
+  kind = "gradient"
+  left = 3
+  right = 3
+  y = "top"
+  dy = 1
+  h = 6
+  radius = 3
+  stops = ["#fffffff2", "#ffffff1a"]
+
+# The sidebar: sky fading down, and its edge against the terminal.
+[[layer]]
+id = "sidebar-sky"
+slot = "sidebar"
+  [[layer.draw]]
+  kind = "gradient"
+  stops = ["#f6fcff 0%", "#e2f3fc 60%", "#cdeaf8 100%"]
+  [[layer.draw]]
+  kind = "line"
+  along = "right"
+  stroke = "#a8d4ec"
+  width = 1
+
+# A rule after each group label, fading out.
+[[layer]]
+id = "label-rule"
+slot = "label.group"
+  [[layer.draw]]
+  kind = "gradient"
+  from_text = true
+  left = 8
+  y = "center"
+  h = 1
+  angle = 0
+  stops = ["#a0d6f4", "#a0d6f400"]
+
+# The selected row: a gel with a horizon, a pale ring inside a blue one, and a soft drop.
+[[layer]]
+id = "row-gel"
+slot = "row.selected"
+  [[layer.draw]]
+  kind = "shadow"
+  radius = 6
+  blur = 4
+  offset = [0, 1]
+  color = "#005a9640"
+  [[layer.draw]]
+  kind = "gradient"
+  radius = 6
+  stops = ["#eaf8ff 0%", "#c8ecff 48%", "#a6defc 50%", "#c9eeff 100%"]
+  [[layer.draw]]
+  kind = "rect"
+  radius = 6
+  stroke = "#a0d6f4"
+  width = 1
+  [[layer.draw]]
+  kind = "rect"
+  left = 1
+  right = 1
+  top = 1
+  bottom = 1
+  radius = 5
+  stroke = "#ffffffcc"
+  width = 1
+
+# The needs-you pill, glossed; every stop keeps its white text at 3:1.
+[[layer]]
+id = "needs-gel"
+slot = "status.needs"
+  [[layer.draw]]
+  kind = "gradient"
+  radius = 10
+  stops = ["#d9661a 0%", "#cf5a00 50%", "#b84d00 51%", "#d4600a 100%"]
+
+# The progress bar: a sunken track and a glossy green fill.
+[[layer]]
+id = "bar-track"
+slot = "bar.track"
+  [[layer.draw]]
+  kind = "gradient"
+  radius = 5
+  stops = ["#d9dfe3", "#f6f8f9"]
+  [[layer.draw]]
+  kind = "rect"
+  radius = 5
+  stroke = "#8fa9b8"
+  width = 1
+
+[[layer]]
+id = "bar-gel"
+slot = "bar.fill"
+  [[layer.draw]]
+  kind = "gradient"
+  radius = 5
+  stops = ["#b6ff9a 0%", "#46d31b 45%", "#22a800 55%", "#61e03a 100%"]
+  [[layer.draw]]
+  kind = "rect"
+  radius = 5
+  stroke = "#ffffff66"
+  width = 1
+
+# The sidebar's foot as a raised glass card, with a green status orb.
+[[layer]]
+id = "foot-card"
+slot = "sidebar.footer"
+  [[layer.draw]]
+  kind = "gradient"
+  left = 10
+  right = 10
+  bottom = 10
+  radius = 8
+  stops = ["#ffffffcc", "#d2f0ff99"]
+  [[layer.draw]]
+  kind = "rect"
+  left = 10
+  right = 10
+  bottom = 10
+  radius = 8
+  stroke = "#a8d4ec"
+  width = 1
+
+# The search field: a white capsule.
+[[layer]]
+id = "field-capsule"
+slot = "palette.field"
+  [[layer.draw]]
+  kind = "rect"
+  radius = 14
+  fill = "#ffffff"
+  stroke = "#a0d6f4"
+  width = 1
+
+[[layer]]
+id = "palette-gel"
+slot = "palette.row.selected"
+  [[layer.draw]]
+  kind = "gradient"
+  radius = 5
+  stops = ["#eaf8ff 0%", "#c8ecff 48%", "#a6defc 50%", "#c9eeff 100%"]
+  [[layer.draw]]
+  kind = "rect"
+  radius = 5
+  stroke = "#a0d6f4"
+  width = 1

@@ -1,0 +1,16 @@
+[plugin]
+id = "dev.haunt.theme-aero"
+name = "Frutiger Aero"
+description = "Glossy 2007 sky: light glass chrome, gel buttons and a green progress bar."
+version = "0.1.0"
+api = "0.5"
+license = "MIT"
+
+[capabilities]
+theme = true
+
+[contributes.theme]
+id = "aero"
+file = "theme.toml"
+fonts = ["fonts/Mukta-Regular.ttf", "fonts/Mukta-Medium.ttf", "fonts/Mukta-SemiBold.ttf", "fonts/Mukta-Bold.ttf", "fonts/Inconsolata-Variable.ttf"]
+licenses = ["OFL-Mukta.txt", "OFL-Inconsolata.txt"]
