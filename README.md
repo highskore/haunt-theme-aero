@@ -1,8 +1,21 @@
+<div align="center">
+
+<img src="docs/icon.png" width="96" alt="">
+
 # Frutiger Aero
 
-A glossy 2007 sky for Haunt. The chrome is light glass over your desktop, with a gloss across the title bar and a sidebar that fades from white to sky blue. The selected tab is a blue gel with a shine along its middle, "needs you" is an orange gel pill, and progress fills a sunken track in glossy green. ⌘K opens a glass palette with a white search capsule.
+**A glossy sky-blue Haunt theme with gel rows and a green progress bar.**
 
-![Frutiger Aero](screenshot.png)
+[![Haunt plugin](https://img.shields.io/badge/Haunt-plugin-D97757)](https://github.com/highskore/haunt-hackathon)
+![Plugin API 0.5](https://img.shields.io/badge/plugin%20API-0.5-111)
+![Theme](https://img.shields.io/badge/kind-theme-6b7280)
+[![License: MIT](https://img.shields.io/badge/license-MIT-6b7280)](LICENSE)
+
+<img src="docs/screenshot.png" width="720" alt="Haunt in Frutiger Aero: a sky-blue sidebar with a gel selected row, an orange needs-you pill and a glass palette">
+
+</div>
+
+A glossy 2007 sky for Haunt. The chrome is light glass over your desktop, with a gloss across the title bar and a sidebar that fades from white to sky blue. The selected tab is a blue gel with a shine along its middle, "needs you" is an orange gel pill, and progress fills a sunken track in glossy green. ⌘K opens a glass palette with a white search capsule.
 
 ## Install and switch
 
